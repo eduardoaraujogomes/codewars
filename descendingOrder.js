@@ -13,5 +13,9 @@ Input: 123456789 Output: 987654321
 
 const descendingOrder = n => n.toString().split('').sort((a, b) => b - a).join('') - 0;
 
+//parseInt will transform the result in a number, String will transform in a string
+// function descendingOrder(n) {
+//     return parseInt(String(n).split('').sort().reverse().join(''));
+// }
 
 console.log(descendingOrder(1201));
