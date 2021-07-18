@@ -14,4 +14,7 @@ var countBits = function (n) {
     return count;
 };
 
-console.log(countBits(0));
+// It is possible to use toString(x) the x value is the base that you want to use.
+// countBits = n => n.toString(2).split('0').join('').length;
+
+console.log(countBits(1234));
