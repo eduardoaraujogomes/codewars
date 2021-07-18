@@ -7,25 +7,25 @@ isIsogram("moOse") == false // -- ignore letter case
 */
 
 
-// const isIsogram = (str) => {
+const isIsogram = (str) => {
 
-//     let lowerLetters = str.toLowerCase().split('');
-//     let condition = true;
-//     if (str === '') {
-//         return condition = true;
-//     }
-//     lowerLetters.forEach(element => {
-//         if (lowerLetters.indexOf(element) != lowerLetters.lastIndexOf(element)) {
-//             return condition = false;
-//         }
-//     });
-//     return condition;
-// };
+    let lowerLetters = str.toLowerCase().split('');
+    let condition = true;
+    if (str === '') {
+        return condition = true;
+    }
+    lowerLetters.forEach(element => {
+        if (lowerLetters.indexOf(element) != lowerLetters.lastIndexOf(element)) {
+            return condition = false;
+        }
+    });
+    return condition;
+};
 
 // this Set object lets you store unique values of any type! 
 //The size accessor property returns the number of (unique) elements in a Set object.
-function isIsogram(str) {
-    return new Set(str.toUpperCase()).size == str.length;
-}
+// function isIsogram(str) {
+//     return new Set(str.toUpperCase()).size == str.length;
+// }
 
 console.log(isIsogram('mose'));
