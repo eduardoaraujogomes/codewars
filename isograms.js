@@ -28,4 +28,13 @@ const isIsogram = (str) => {
 //     return new Set(str.toUpperCase()).size == str.length;
 // }
 
-console.log(isIsogram('mose'));
+// is it possible to solve it using regex. ! -- 
+//i - ignore case - Makes the whole expression case-insensitive
+// \w any word in lower case
+// * Matches 0 or more of the preceding token.
+
+// function isIsogram(str) {
+//     return !/(\w).*\1/i.test(str);
+// }
+
+console.log(isIsogram('mOose'));
