@@ -11,4 +11,9 @@ summation(8) -> 36
 
 let summation = num => (num * (num + 1)) / 2;
 
+/* 
+var summation = function (num) {
+    return (num > 1) ? num + summation(num - 1):num;
+  } */
+
 console.log(summation(8));
