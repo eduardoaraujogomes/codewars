@@ -9,16 +9,17 @@ rgb(255, 255, 300) // returns FFFFFF
 rgb(0,0,0) // returns 000000
 rgb(148, 0, 211) // returns 9400D3 */
 
-/* const rgb = (r, g, b) => {
+const rgb = (r, g, b) => hexadecimal(r) + hexadecimal(g) + hexadecimal(b);
 
-}
-
-console.log() */
-
-const rgb = (r, g, b) => {
-    const toHex = v => Math.max(Math.min(v, 255), 0);
-
-    return ((1 << 24) + (toHex(r) << 16) + (toHex(g) << 8) + toHex(b)).toString(16).slice(1).toUpperCase();
+const hexadecimal = n => {
+    let expression = Number(n).toString(16).toUpperCase();
+    if (n < 0 || n == 0) {
+        return "00";
+    }
+    if (n > 255) {
+        return "FF";
+    }
+    return (expression.length < 2 ? 0 + expression : expression);
 };
 
 
@@ -34,25 +35,20 @@ function toHex(d) {
 } */
 
 //Other way
-/* const rgb = (r, g, b) => hexadecimal(r) + hexadecimal(g) + hexadecimal(b);
+/* 
+const rgb = (r, g, b) => {
+    const toHex = v => Math.max(Math.min(v, 255), 0);
 
-const hexadecimal = n => {
-    let expression = Number(n).toString(16).toUpperCase();
-    if (n < 0 || n == 0) {
-        return "00";
-    }
-    if (n > 255) {
-        return "FF";
-    }
-    return (expression.length < 2 ? 0 + expression : expression);
-}; */
+    return ((1 << 24) + (toHex(r) << 16) + (toHex(g) << 8) + toHex(b)).toString(16).slice(1).toUpperCase();
+}; 
+*/
 
 //Other way
 
-/* function rgb(r, g, b){
-    return [r,g,b].map(function(x) {
-      return ('0'+Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
+/* function rgb(r, g, b) {
+    return [r, g, b].map(function (x) {
+        return ('0' + Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
     }).join('').toUpperCase();
-  } */
+} */
 
 console.log(rgb(300, 255, 255));
