@@ -30,7 +30,21 @@ const rgb = (r, g, b) => {
 function toHex(d) {
     if (d < 0) { return "00"; }
     if (d > 255) { return "FF"; }
-    return ("0" + (Number(d).toString(16))).slice(-2).toUpperCase();
+    return (0 + (Number(d).toString(16))).slice(-2).toUpperCase();
 } */
+
+//Other way
+/* const rgb = (r, g, b) => hexadecimal(r) + hexadecimal(g) + hexadecimal(b);
+
+const hexadecimal = n => {
+    let expression = Number(n).toString(16).toUpperCase();
+    if (n < 0 || n == 0) {
+        return "00";
+    }
+    if (n > 255) {
+        return "FF";
+    }
+    return (expression.length < 2 ? 0 + expression : expression);
+}; */
 
 console.log(rgb(300, 255, 255));
