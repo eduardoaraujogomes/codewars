@@ -16,9 +16,9 @@ rgb(148, 0, 211) // returns 9400D3 */
 console.log() */
 
 const rgb = (r, g, b) => {
-    const getMinMaxValue = v => Math.max(Math.min(v, 255), 0);
+    const toHex = v => Math.max(Math.min(v, 255), 0);
 
-    return ((1 << 24) + (getMinMaxValue(r) << 16) + (getMinMaxValue(g) << 8) + getMinMaxValue(b)).toString(16).slice(1).toUpperCase();
+    return ((1 << 24) + (toHex(r) << 16) + (toHex(g) << 8) + toHex(b)).toString(16).slice(1).toUpperCase();
 };
 
 
