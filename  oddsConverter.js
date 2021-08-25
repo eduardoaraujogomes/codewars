@@ -18,7 +18,15 @@ For this challenge, you will be given some fractional odds, represented as an ar
 
 The result must be a string, and there should be no spaces between the number and the percentage sign. When rounding, 5 should be rounded up. Good luck! */
 
-
+/* 
+function oddsConverter(odds) {
+    let valores = odds.reduce((acum, curr)=>{
+        let numeros = curr.split("/")
+        acum.push(Number(numeros[1])/(Number(numeros[0]) + Number(numeros[1]))*100)
+        return acum
+    }, [])
+    return ${Math.max(...valores).toFixed(1)}.endsWith('.0') ? ${Math.max(...valores).toFixed(0)}% : ${Math.max(...valores).toFixed(1)}%
+} */
 
 const oddsConverter = odds => {
     let probabilities = [];
