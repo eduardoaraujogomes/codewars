@@ -18,17 +18,24 @@ For this challenge, you will be given some fractional odds, represented as an ar
 
 The result must be a string, and there should be no spaces between the number and the percentage sign. When rounding, 5 should be rounded up. Good luck! */
 
-/* 
-function oddsConverter(odds) {
-    let valores = odds.reduce((acum, curr)=>{
-        let numeros = curr.split("/")
-        acum.push(Number(numeros[1])/(Number(numeros[0]) + Number(numeros[1]))*100)
-        return acum
-    }, [])
-    return ${Math.max(...valores).toFixed(1)}.endsWith('.0') ? ${Math.max(...valores).toFixed(0)}% : ${Math.max(...valores).toFixed(1)}%
-} */
 
-const oddsConverter = odds => {
+function oddsConverter(odds) {
+    let valores = odds.reduce((acum, curr) => {
+        let [n, d] = curr.split("/");
+        acum.push(Number(d) / (Number(n) + Number(d)) * 100);
+        return acum;
+    }, []);
+    let array = Math.max(...valores);
+    return `${array.toFixed(1)}`.endsWith('.0') ? `${array.toFixed(0)}%` : `${array.toFixed(1)}%`;
+}
+
+
+console.log(oddsConverter(['9/1', '20/1', '1/3', '20/1', '1/5']));
+console.log(oddsConverter(['4/1', '50/1', '1/6']));
+console.log(oddsConverter(['9/2', '1/9', '1/2']));
+
+
+/* const oddsConverter = odds => {
     let probabilities = [];
 
     odds.map((el) => {
@@ -47,11 +54,8 @@ const oddsConverter = odds => {
 
 
     return ultimo[ultimo.length - 1] == 0 ? `${ultimo.slice(0, 2)}%` : `${ultimo}%`;
-};
+}; */
 
-console.log(oddsConverter(['9/1', '20/1', '1/3', '20/1', '1/5']));
-console.log(oddsConverter(['4/1', '50/1', '1/6']));
-console.log(oddsConverter(['9/2', '1/9', '1/2']));
 
 
 
