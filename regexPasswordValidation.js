@@ -19,6 +19,21 @@ Valid passwords will only be alphanumeric characters. */
  * characters afterwards. The 6 or more characters will simply not match if they don't fulfill every lookahead.
  **/
 
+/**
+ * 
+ * these two lines of comments belong together:
+"you need to allow every character (.*) before your lookahead character set,
+except you want to ensure the expression starts with i.e. a lowercase character."
+
+When you want to force your password to start with a certain expression, you'll need to replace (.*) with whatever you want as a start.
+For lowercase characters it would be: ^(?=[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)[A-Za-z0-9]{6,}$
+
+Mind the removed .* before our (?=[a-z]+) lookahead. Starting with a number, it would need to be ^(?=[0-9]+)(?=.*[A-Z]+)(?=.*[a-z]+)[A-Za-z0-9]{6,}$
+
+Regarding the ^ (start of line) and $ (end of line): These force to test the complete input and prevent a match against a partial string. We want a password that solely consists of lower and upper characters as well as numbers, nothing else.
+For example, the password #1234Ab would match when we are leaving away the ^ and $, since 1234Ab fulfills our RegEx and we don't care if its the whole line (input) or not.
+ */
+
 function validate(password) {
   return /(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)/.test(password);
 }
